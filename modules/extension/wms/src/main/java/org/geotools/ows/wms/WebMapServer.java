@@ -495,7 +495,8 @@ public class WebMapServer extends AbstractOpenWebService<WMSCapabilities, Layer>
      * @return a configureable GetMapRequest object
      */
     public GetMapRequest createGetMapRequest() {
-        URL onlineResource = findURL(getCapabilities().getRequest().getGetMap());
+        URL onlineResource =
+                super.serverURL; // findURL(getCapabilities().getRequest().getGetMap());
 
         return (GetMapRequest) getSpecification().createGetMapRequest(onlineResource);
     }
@@ -513,7 +514,8 @@ public class WebMapServer extends AbstractOpenWebService<WMSCapabilities, Layer>
                     "This Web Map Server does not support GetFeatureInfo requests");
         }
 
-        URL onlineResource = findURL(getCapabilities().getRequest().getGetFeatureInfo());
+        URL onlineResource =
+                super.serverURL; // findURL(getCapabilities().getRequest().getGetFeatureInfo());
 
         GetFeatureInfoRequest request =
                 getSpecification().createGetFeatureInfoRequest(onlineResource, getMapRequest);
@@ -527,10 +529,11 @@ public class WebMapServer extends AbstractOpenWebService<WMSCapabilities, Layer>
                     "Server does not specify a DescribeLayer operation. Cannot be performed");
         }
 
-        URL onlineResource = getCapabilities().getRequest().getDescribeLayer().getGet();
-        if (onlineResource == null) {
-            onlineResource = serverURL;
-        }
+        URL onlineResource =
+                super.serverURL; // getCapabilities().getRequest().getDescribeLayer().getGet();
+        // if (onlineResource == null) {
+        //    onlineResource = serverURL;
+        // }
 
         DescribeLayerRequest request =
                 getSpecification().createDescribeLayerRequest(onlineResource);
@@ -545,10 +548,11 @@ public class WebMapServer extends AbstractOpenWebService<WMSCapabilities, Layer>
                     "Server does not specify a GetLegendGraphic operation. Cannot be performed");
         }
 
-        URL onlineResource = getCapabilities().getRequest().getGetLegendGraphic().getGet();
-        if (onlineResource == null) {
-            onlineResource = serverURL;
-        }
+        URL onlineResource =
+                super.serverURL; // getCapabilities().getRequest().getGetLegendGraphic().getGet();
+        // if (onlineResource == null) {
+        //    onlineResource = serverURL;
+        // }
 
         GetLegendGraphicRequest request =
                 getSpecification().createGetLegendGraphicRequest(onlineResource);
@@ -562,10 +566,11 @@ public class WebMapServer extends AbstractOpenWebService<WMSCapabilities, Layer>
                     "Server does not specify a GetStyles operation. Cannot be performed");
         }
 
-        URL onlineResource = getCapabilities().getRequest().getGetStyles().getGet();
-        if (onlineResource == null) {
-            onlineResource = serverURL;
-        }
+        URL onlineResource =
+                super.serverURL; // getCapabilities().getRequest().getGetStyles().getGet();
+        // if (onlineResource == null) {
+        //    onlineResource = serverURL;
+        // }
 
         GetStylesRequest request = getSpecification().createGetStylesRequest(onlineResource);
 
@@ -578,10 +583,11 @@ public class WebMapServer extends AbstractOpenWebService<WMSCapabilities, Layer>
                     "Server does not specify a PutStyles operation. Cannot be performed");
         }
 
-        URL onlineResource = getCapabilities().getRequest().getPutStyles().getGet();
-        if (onlineResource == null) {
-            onlineResource = serverURL;
-        }
+        URL onlineResource =
+                super.serverURL; // getCapabilities().getRequest().getPutStyles().getGet();
+        // if (onlineResource == null) {
+        //    onlineResource = serverURL;
+        // }
 
         PutStylesRequest request = getSpecification().createPutStylesRequest(onlineResource);
         return request;
