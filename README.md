@@ -1,3 +1,9 @@
+## Please Note:
+
+This fork of [GeoTools](http://geotools.org) is ___non-conformant___ to the WMS standard in that it allows the dimension element to have non-null empty units. Please use the official [GeoTools Repository](https://github.com/geotools/geotools) if you require the fully compliant version. 
+
+This repository fork is under the parent licensing scheme.
+
 ![GeoTools logo](/geotools-logo.png)
 
 [GeoTools](http://geotools.org) is an open source Java library that provides
