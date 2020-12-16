@@ -495,7 +495,7 @@
   <groupId>org.geotools</groupId>
   <artifactId>geotools</artifactId>
   <packaging>pom</packaging>
-  <version>25-SNAPSHOT</version>
+  <version>25-QUETZALCOATLUS</version>
   <name>GeoTools</name>
 
   <scm>

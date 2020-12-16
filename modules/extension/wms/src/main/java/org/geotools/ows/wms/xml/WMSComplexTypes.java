@@ -3390,7 +3390,7 @@ public class WMSComplexTypes {
             }
 
             String units = attrs.getValue("units");
-            if (units == null || units.length() == 0) {
+            if (units == null) {
                 throw new SAXException("Dimension element contains no 'units' attribute");
             }
 

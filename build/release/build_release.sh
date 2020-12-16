@@ -76,11 +76,11 @@ if ! git show-ref refs/heads/$branch; then
   git fetch origin $branch:$branch
 fi
 # ensure there is a jira release
-jira_id=`get_jira_id $tag`
-if [ -z $jira_id ]; then
-  echo "Could not locate release $tag in JIRA"
-  exit -1
-fi
+#jira_id=`get_jira_id $tag`
+#if [ -z $jira_id ]; then
+#  echo "Could not locate release $tag in JIRA"
+#  exit -1
+#fi
 # create artifact staging dir
 dist=`pwd`/distribution/$tag
 if [ -e $dist ]; then
@@ -104,11 +104,11 @@ echo "MAVEN_FLAGS=$MAVEN_FLAGS"
 pushd ../../ > /dev/null
 
 # clear out any changes
-git reset --hard HEAD
+#git reset --hard HEAD
 
 # checkout and update primary branch
-git checkout $branch
-git pull origin $branch
+#git checkout $branch
+#git pull origin $branch
 
 # check to see if a release branch already exists
 if [ `git branch --list rel_$tag | wc -l` == 1 ]; then
@@ -117,7 +117,7 @@ if [ `git branch --list rel_$tag | wc -l` == 1 ]; then
   git branch -D rel_$tag
 fi
 
-git checkout $branch
+#git checkout $branch
 
 # ensure the specified revision actually on this branch
 if [ $rev != "HEAD" ]; then
@@ -131,7 +131,7 @@ if [ $rev != "HEAD" ]; then
 fi
 
 # create a release branch
-git checkout -b rel_$tag $rev
+#git checkout -b rel_$tag $rev
 
 # update versions
 pushd build > /dev/null
@@ -163,32 +163,32 @@ fi
 echo "copying artifacts to $dist"
 cp $target/*.zip $dist
 
-init_git $git_user $git_email
+#init_git $git_user $git_email
 
 # commit changes, excluding release staging dir
-git add docs modules
-git add pom.xml build/pom.xml build/README.html build/maven
-git commit -m "updating version numbers and README for $tag"
+#git add docs modules
+#git add pom.xml build/pom.xml build/README.html build/maven
+#git commit -m "updating version numbers and README for $tag"
 
 # tag release branch
 if [ -z $SKIP_TAG ]; then
     # check to see if tag already exists
-    git fetch --tags
+#    git fetch --tags
     if [ `git tag --list $tag | wc -l` == 1 ]; then
       echo "tag $tag exists, deleting it"
-      git tag -d $tag
+ #     git tag -d $tag
     fi
 
     if  [ `git ls-remote --refs --tags origin tags/$tag | wc -l` == 1 ]; then
       echo "tag $tag exists on $GIT_ROOT, deleting it"
-      git push --delete origin $tag
+  #    git push --delete origin $tag
     fi
 
     # tag the release branch
-    git tag $tag
+   # git tag $tag
 
     # push up tag
-    git push origin $tag
+    #git push origin $tag
 fi
 
 # return to build/release

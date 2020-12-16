@@ -55,7 +55,7 @@ public class Dimension {
             throw new IllegalArgumentException(
                     "Error creating Extent: parameter name must not be null!");
         }
-        if (units == null || units.length() == 0) {
+        if (units == null) {
             throw new IllegalArgumentException(
                     "Error creating Extent: parameter units must not be null!");
         }
@@ -70,7 +70,7 @@ public class Dimension {
             throw new IllegalArgumentException(
                     "Error creating Extent: parameter name must not be null!");
         }
-        if (units == null || units.length() == 0) {
+        if (units == null) {
             throw new IllegalArgumentException(
                     "Error creating Extent: parameter units must not be null!");
         }
